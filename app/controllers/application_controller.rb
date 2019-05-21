@@ -12,6 +12,8 @@ class App < Sinatra::Base
       binding.pry
       @team = Team.new(params[:team])
 
+      params[:team][:hero].each {|det| Hero.new(det)}
+      @heroes = Hero.all
       erb :team
     end
 
